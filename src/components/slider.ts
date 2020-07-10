@@ -1,7 +1,7 @@
 import $ from 'jquery'
 
 class Slider {
-    $slider: JQuery
+    private $slider: JQuery
 
     public constructor() {
         this.$slider = $('<div/>', {
