@@ -1,7 +1,7 @@
 import $ from 'jquery'
 
 class Runner {
-    $runner: JQuery
+    private $runner: JQuery
 
     public constructor() {
         this.$runner = $('<div/>', {
@@ -9,8 +9,8 @@ class Runner {
             on: {
                 mousedown: () => {
                     this.$runner.on('mousemove', (e) => {
-                        this.$runner.trigger('updataPositionRunner', {
-                            position_runner_X: e.pageX
+                        this.$runner.trigger('updataPosition', {
+                            position_X: e.pageX
                         })
                     })
                     $(document).on('mouseup', () => {
@@ -25,8 +25,8 @@ class Runner {
         return this.$runner
     }
 
-    public updataPositionRunner(value: number): void {
-        this.$runner.css({'transform': `translateX(${value}px)`})
+    public updataRenderRunner(position_X: number): void {
+        this.$runner.css({'transform': `translateX(${position_X}px)`})
     }
 }
 
