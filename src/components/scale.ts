@@ -1,11 +1,18 @@
 import $ from 'jquery'
 
 class Scale {
-    $scale: JQuery
+    private $scale: JQuery
 
     public constructor() {
         this.$scale = $('<div/>', {
-            class: 'slider__scale'
+            class: 'slider__scale',
+            on: {
+                click: (e: JQueryEventObject) => {
+                    this.$scale.trigger('updataPosition', {
+                        position_X: e.pageX
+                    })
+                }
+            }
         })
     }
 
