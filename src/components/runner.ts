@@ -1,17 +1,26 @@
 import $ from 'jquery'
 
 class Runner {
+    private position: string
     private $runner: JQuery
 
-    public constructor() {
+    public constructor(position: string) {
+        this.position = position
         this.$runner = $('<div/>', {
             class: 'slider__runner',
             on: {
                 mousedown: () => {
                     this.$runner.on('mousemove', (e) => {
-                        this.$runner.trigger('updataPosition', {
-                            position_X: e.pageX
-                        })
+                        if(this.position === 'gorizontal') {
+                            this.$runner.trigger('updataPosition', {
+                                position: e.pageX
+                            })    
+                        } else if(this.position === 'vertical') {
+                            this.$runner.trigger('updataPosition', {
+                                position: e.pageY
+                            }) 
+                        }
+                        
                     })
                     $(document).on('mouseup', () => {
                         this.$runner.off('mousemove')
@@ -25,8 +34,12 @@ class Runner {
         return this.$runner
     }
 
-    public updataRenderRunner(position_X: number): void {
-        this.$runner.css({'transform': `translateX(${position_X}px)`})
+    public updataRenderRunner(position: number): void {
+        if(this.position === 'gorizontal') {
+            this.$runner.css({'transform': `translateX(${position}px)`})
+        } else if(this.position === 'vertical') {
+            this.$runner.css({'transform': `translateY(${position}px)`})
+        }
     }
 }
 

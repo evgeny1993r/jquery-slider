@@ -2,6 +2,7 @@ import { Model } from './model'
 import { View } from './view'
 
 interface Ioptions {
+    position: string
     min_value: number
     max_value: number 
     current_value: number 
@@ -25,11 +26,11 @@ class Presenter {
     private model: Imodel
     private view: Iview
 
-    public constructor($this: JQuery, { min_value, max_value, current_value, step, show_window_value }: Ioptions) {
+    public constructor($this: JQuery, { position, min_value, max_value, current_value, step, show_window_value }: Ioptions) {
         this.$this = $this
 
         this.model = new Model(min_value, max_value, current_value)
-        this.view = new View(this.$this, min_value, max_value, current_value, step, show_window_value)
+        this.view = new View(this.$this, position, min_value, max_value, current_value, step, show_window_value)
     }
 
     public init(): JQuery {

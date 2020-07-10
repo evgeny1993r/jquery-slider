@@ -32,6 +32,7 @@ interface Iwindow_value {
 class View {
     private $this: JQuery
 
+    private position: string
     private min_value: number 
     private max_value: number 
     private current_value: number 
@@ -54,12 +55,13 @@ class View {
     private $runner: JQuery
     private $window_value: JQuery
 
-    private position_$scale_X: number
+    private position_$scale: number
     private unit_value: number 
 
-    public constructor($this: JQuery, min_value: number, max_value: number, current_value: number, step: number, show_window_value: boolean) {
+    public constructor($this: JQuery, position: string, min_value: number, max_value: number, current_value: number, step: number, show_window_value: boolean) {
         this.$this = $this
 
+        this.position = position
         this.min_value = min_value
         this.max_value = max_value
         this.current_value = current_value
@@ -70,11 +72,11 @@ class View {
         this.view_max_value = this.max_value - this.min_value 
         this.view_current_value = this.current_value - this.min_value
 
-        this.slider = new Slider()
-        this.scale = new Scale()
-        this.scale_value = new ScaleValue()
-        this.runner = new Runner()
-        this.window_value = new WindowValue()
+        this.slider = new Slider(this.position)
+        this.scale = new Scale(this.position)
+        this.scale_value = new ScaleValue(this.position)
+        this.runner = new Runner(this.position)
+        this.window_value = new WindowValue(this.position)
 
         this.$slider = this.slider.getSlider()
         this.$scale = this.scale.getScale()
@@ -82,7 +84,7 @@ class View {
         this.$runner = this.runner.getRunner()
         this.$window_value = this.window_value.getWindowValue()
 
-        this.position_$scale_X = 0
+        this.position_$scale = 0
         this.unit_value = 0
 
     }
@@ -95,8 +97,8 @@ class View {
                 .append(this.$runner))
         this.show_window_value ? this.$slider.append(this.$window_value): null
         
-        this.position_$scale_X = this.$scale.position().left
-        this.unit_value = this.$scale.outerWidth()! / this.view_max_value
+        this.position_$scale = this.position === 'gorizontal' ? this.$scale.position().left : this.$scale.position().top
+        this.unit_value = this.position === 'gorizontal' ? this.$scale.outerWidth()! / this.view_max_value : this.$scale.outerHeight()! / this.view_max_value
 
         this.updataRender()
 
@@ -104,7 +106,7 @@ class View {
         $elements.forEach((el) => {
             el.on('updataPosition', (e, data) => {
                 this.$this.trigger('updataCurrentValue', {
-                    current_value: (Math.round((((data.position_X - this.position_$scale_X) / this.unit_value) + this.min_value) / this.step)) * this.step
+                    current_value: (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
                 })
             })
         })

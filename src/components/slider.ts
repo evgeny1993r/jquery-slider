@@ -3,9 +3,9 @@ import $ from 'jquery'
 class Slider {
     private $slider: JQuery
 
-    public constructor() {
+    public constructor(position: string) {
         this.$slider = $('<div/>', {
-            class: 'slider'
+            class: `slider slider_${position}`
         })
     }
 

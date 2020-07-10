@@ -11,6 +11,7 @@ declare global {
 }
 
 interface Ioptions {
+    position?: string
     min_value?: number
     max_value?: number
     current_value?: number
@@ -21,6 +22,7 @@ interface Ioptions {
 (function($) {
     $.fn.slider = function(options) {
         const newOptions = $.extend({
+            position: 'gorizontal',
             min_value: 0,
             max_value: 100,
             current_value: 0,
@@ -33,10 +35,11 @@ interface Ioptions {
 
 $(document).ready(() => {
     $('#test').slider({
-        min_value: - 1000,
-        max_value: 1000,
-        current_value: 0,
-        step: 5,
+        position: 'vertical',
+        //min_value: -1000,
+        //max_value: 1000,
+        //current_value: 0,
+        //step: 5,
         show_window_value: true
     })
 })

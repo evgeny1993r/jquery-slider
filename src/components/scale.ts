@@ -1,16 +1,24 @@
 import $ from 'jquery'
 
 class Scale {
+    private position: string
     private $scale: JQuery
 
-    public constructor() {
+    public constructor(position: string) {
+        this.position = position
         this.$scale = $('<div/>', {
             class: 'slider__scale',
             on: {
                 click: (e: JQueryEventObject) => {
-                    this.$scale.trigger('updataPosition', {
-                        position_X: e.pageX
-                    })
+                    if(this.position === 'gorizontal') {
+                        this.$scale.trigger('updataPosition', {
+                            position: e.pageX
+                        }) 
+                    } else if(this.position === 'vertical') {
+                        this.$scale.trigger('updataPosition', {
+                            position: e.pageY
+                        })
+                    }
                 }
             }
         })
