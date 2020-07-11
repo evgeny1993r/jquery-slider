@@ -37,11 +37,15 @@ class Presenter {
         this.view.init()
 
         this.$this.on('updataCurrentValue', (e, data) => {
-            this.model.setCurrentValue(data.current_value)
-            this.view.updataView(this.model.getCurrentValue())
+            this.setCurrentValue(data.current_value)
         })
         
         return this.$this
+    }
+
+    public setCurrentValue(value: number) {
+        this.model.setCurrentValue(value)
+        this.view.updataView(this.model.getCurrentValue())
     }
 }
 
