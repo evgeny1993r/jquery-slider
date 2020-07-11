@@ -38,6 +38,7 @@ class View {
     private current_value: number 
     private step: number
     private show_window_value: boolean
+    private $input: JQuery | null
 
     private view_min_value: number 
     private view_max_value: number 
@@ -58,7 +59,7 @@ class View {
     private position_$scale: number
     private unit_value: number 
 
-    public constructor($this: JQuery, position: string, min_value: number, max_value: number, current_value: number, step: number, show_window_value: boolean) {
+    public constructor($this: JQuery, position: string, min_value: number, max_value: number, current_value: number, step: number, show_window_value: boolean, $input: JQuery | null) {
         this.$this = $this
 
         this.position = position
@@ -67,6 +68,7 @@ class View {
         this.current_value = current_value
         this.step = step
         this.show_window_value = show_window_value
+        this.$input = $input
 
         this.view_min_value = this.min_value - this.min_value
         this.view_max_value = this.max_value - this.min_value 
@@ -115,6 +117,15 @@ class View {
             })
         })
 
+        if(this.$input) {
+            this.$input.on('change', () => {
+                if(this.$input!.val() !== NaN) {
+                    this.$this!.trigger('updataCurrentValue', {
+                        current_value: Number(this.$input!.val())
+                    })
+                }
+            })
+        }
     }
 
     public updataView(current_value: number): void {
@@ -129,6 +140,10 @@ class View {
 
         if(this.show_window_value) {
             this.window_value!.updataRenderWindowValue(this.view_current_value * this.unit_value, this.current_value)
+        }
+
+        if(this.$input) {
+            this.$input.val(this.current_value)
         }
     }
 }

@@ -22,6 +22,7 @@ interface Ioptions {
     current_value?: number
     step?: number
     show_window_value?: boolean
+    $input?: JQuery | null
 }
 
 (function($) {
@@ -36,7 +37,8 @@ interface Ioptions {
                 max_value: 100,
                 current_value: 0,
                 step: 1,
-                show_window_value: false
+                show_window_value: false,
+                $input: null
             }, options)
 
             presenter = new Presenter($this, newOptions)
@@ -61,6 +63,10 @@ interface Ioptions {
         }
     }
 
-    const test = $('#test').slider()
+    const test = $('#test').slider({
+        min_value: -100,
+        $input: $('#input-test')
+    })
+
     
 })(jQuery)
