@@ -21,12 +21,12 @@ interface Iscale_value {
 
 interface Irunner {
     getRunner(): JQuery
-    updataRenderRunner(position_X: number): void
+    updataRenderRunner(position: number): void
 }
 
 interface Iwindow_value {
     getWindowValue(): JQuery
-    updataRenderWindowValue(position_X: number, value: number): void
+    updataRenderWindowValue(position: number, value: number): void
 }
 
 class View {
@@ -47,13 +47,13 @@ class View {
     private scale: Iscale
     private scale_value: Iscale_value
     private runner: Irunner
-    private window_value: Iwindow_value
+    private window_value?: Iwindow_value
 
     private $slider: JQuery
     private $scale: JQuery
     private $scale_value: JQuery
     private $runner: JQuery
-    private $window_value: JQuery
+    private $window_value?: JQuery
 
     private position_$scale: number
     private unit_value: number 
@@ -76,13 +76,11 @@ class View {
         this.scale = new Scale(this.position)
         this.scale_value = new ScaleValue(this.position)
         this.runner = new Runner(this.position)
-        this.window_value = new WindowValue(this.position)
 
         this.$slider = this.slider.getSlider()
         this.$scale = this.scale.getScale()
         this.$scale_value = this.scale_value.getScaleValue()
         this.$runner = this.runner.getRunner()
-        this.$window_value = this.window_value.getWindowValue()
 
         this.position_$scale = 0
         this.unit_value = 0
@@ -95,10 +93,16 @@ class View {
                 .append(this.$scale)
                 .append(this.$scale_value)
                 .append(this.$runner))
-        this.show_window_value ? this.$slider.append(this.$window_value): null
+
+        if(this.show_window_value) {
+            this.window_value = new WindowValue(this.position)
+            this.$window_value = this.window_value.getWindowValue()
+            this.$slider.append(this.$window_value)
+        }
         
         this.position_$scale = this.position === 'gorizontal' ? this.$scale.position().left : this.$scale.position().top
         this.unit_value = this.position === 'gorizontal' ? this.$scale.outerWidth()! / this.view_max_value : this.$scale.outerHeight()! / this.view_max_value
+
 
         this.updataRender()
 
@@ -122,7 +126,10 @@ class View {
     private updataRender() {
         this.runner.updataRenderRunner(this.view_current_value * this.unit_value)
         this.scale_value.updataRenderScaleValue(this.view_current_value * this.unit_value)
-        this.window_value.updataRenderWindowValue(this.view_current_value * this.unit_value, this.current_value)
+
+        if(this.show_window_value) {
+            this.window_value!.updataRenderWindowValue(this.view_current_value * this.unit_value, this.current_value)
+        }
     }
 }
 
