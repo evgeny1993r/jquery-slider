@@ -1,4 +1,4 @@
-import $ from 'jquery'
+import jQuery from 'jquery'
 
 import { Presenter } from './mvp/presenter'
 
@@ -8,6 +8,11 @@ declare global {
     interface JQuery {
         slider(options?: Ioptions): JQuery
     }
+}
+
+interface Ipresenter {
+    init(): JQuery
+    setCurrentValue(value: number): void
 }
 
 interface Ioptions {
@@ -20,26 +25,42 @@ interface Ioptions {
 }
 
 (function($) {
-    $.fn.slider = function(options) {
-        const newOptions = $.extend({
-            position: 'gorizontal',
-            min_value: 0,
-            max_value: 100,
-            current_value: 0,
-            step: 1,
-            show_window_value: false
-        }, options)
-        return this.add(new Presenter(this, newOptions).init())
-    }
-})($)
 
-$(document).ready(() => {
-    $('#test').slider({
-        position: 'vertical',
-        //min_value: -1000,
-        //max_value: 1000,
-        //current_value: 0,
-        //step: 5,
-        show_window_value: true
-    })
-})
+    let presenter: Ipresenter
+
+    const methods = {
+        init: ($this: JQuery, options?: Ioptions) => { 
+            const newOptions = $.extend({
+                position: 'gorizontal',
+                min_value: 0,
+                max_value: 100,
+                current_value: 0,
+                step: 1,
+                show_window_value: false
+            }, options)
+
+            presenter = new Presenter($this, newOptions)
+            return presenter.init()
+        },
+
+        setCurrentValue: (value: number) => presenter.setCurrentValue(value)
+    }
+
+    $.fn.slider = function(key?: Ioptions | string | undefined, value?: number | undefined) {
+        if(!key) {
+            methods.init(this)
+            return this
+        } else if(typeof key === 'object') {
+            methods.init(this, key)
+            return this
+        } else if(key === 'setCurrentValue' && value !== undefined) {
+            methods.setCurrentValue(value)
+            return this
+        } else {
+            return this
+        }
+    }
+
+    const test = $('#test').slider()
+    
+})(jQuery)
