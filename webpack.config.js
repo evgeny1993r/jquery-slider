@@ -56,6 +56,10 @@ if(isMode === 'development') {
             jquery: 'jQuery'
         },
 
+        resolve: {
+            extensions: ['.ts', '.js']
+        },
+        
         plugins: [
             new MiniCssExtractPlugin({
                 filename: 'slider.css'
