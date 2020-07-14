@@ -69,7 +69,7 @@ interface Ioptions {
             methods.setCurrentValues(value)
             return this
         } else {
-            return this
+            throw Error('Error')
         }
     }
 })($)
