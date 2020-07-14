@@ -1,4 +1,4 @@
-import jQuery from 'jquery'
+import $ from 'jquery'
 
 import { Presenter } from './mvp/presenter'
 
@@ -12,43 +12,50 @@ declare global {
 
 interface Ipresenter {
     init(): JQuery
-    setCurrentValue(value: number): void
+    setCurrentValue?(value: number): void
+    setCurrentValues?(value: string): void
 }
 
 interface Ioptions {
     position?: string
+    interval?: boolean
     min_value?: number
     max_value?: number
-    current_value?: number
+    current_value?: number 
+    current_value_min?: number
+    current_value_max?: number 
     step?: number
     show_window_value?: boolean
-    $input?: JQuery | null
+    $input?: JQuery
 }
 
 (function($) {
-
     let presenter: Ipresenter
 
     const methods = {
-        init: ($this: JQuery, options?: Ioptions) => { 
+        init: ($this: JQuery, options?: Ioptions) => {
             const newOptions = $.extend({
                 position: 'gorizontal',
+                interval: false,
                 min_value: 0,
                 max_value: 100,
-                current_value: 0,
+                current_value: !options || options && !options.interval ? 0 : undefined,
+                current_value_min: options && options.interval ? 0 : undefined,
+                current_value_max: options && options.interval ? 100 : undefined,
                 step: 1,
                 show_window_value: false,
-                $input: null
+                $input: $()
             }, options)
-
             presenter = new Presenter($this, newOptions)
-            return presenter.init()
+            return presenter.init()   
         },
 
-        setCurrentValue: (value: number) => presenter.setCurrentValue(value)
+        setCurrentValue: (value: number) =>  presenter.setCurrentValue!(value),
+
+        setCurrentValues: (value: string) => presenter.setCurrentValues!(value)
     }
 
-    $.fn.slider = function(key?: Ioptions | string | undefined, value?: number | undefined) {
+    $.fn.slider = function(key?: Ioptions | string, value?: any) {
         if(!key) {
             methods.init(this)
             return this
@@ -58,15 +65,11 @@ interface Ioptions {
         } else if(key === 'setCurrentValue' && value !== undefined) {
             methods.setCurrentValue(value)
             return this
+        } else if(key === 'setCurrentValues' && value !== undefined) {
+            methods.setCurrentValues(value)
+            return this
         } else {
             return this
         }
     }
-
-    const test = $('#test').slider({
-        min_value: -100,
-        $input: $('#input-test')
-    })
-
-    
-})(jQuery)
+})($)

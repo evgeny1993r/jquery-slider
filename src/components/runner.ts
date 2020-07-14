@@ -4,7 +4,7 @@ class Runner {
     private position: string
     private $runner: JQuery
 
-    public constructor(position: string) {
+    public constructor(position: string, event_name: string) {
         this.position = position
         this.$runner = $('<div/>', {
             class: 'slider__runner',
@@ -12,15 +12,14 @@ class Runner {
                 mousedown: () => {
                     this.$runner.on('mousemove', (e) => {
                         if(this.position === 'gorizontal') {
-                            this.$runner.trigger('updataPosition', {
+                            this.$runner.trigger(event_name, {
                                 position: e.pageX
                             })    
                         } else if(this.position === 'vertical') {
-                            this.$runner.trigger('updataPosition', {
+                            this.$runner.trigger(event_name, {
                                 position: e.pageY
                             }) 
-                        }
-                        
+                        }   
                     })
                     $(document).on('mouseup', () => {
                         this.$runner.off('mousemove')

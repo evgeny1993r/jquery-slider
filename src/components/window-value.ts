@@ -15,7 +15,7 @@ class WindowValue {
         return this.$window_value
     }
 
-    public updataRenderWindowValue(position: number, value: number): void {
+    public updataRenderWindowValue(position: number, value: string): void {
         if(this.position === 'gorizontal') {
             this.$window_value.css({'transform': `translateX(${position}px)`})
         } else if(this.position === 'vertical') {

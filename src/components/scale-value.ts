@@ -11,11 +11,11 @@ class ScaleValue {
             on: {
                 click: (e: JQueryEventObject) => {
                     if(this.position === 'gorizontal') {
-                        this.$scale_value.trigger('updataPosition', {
+                        this.$scale_value.trigger('updataPositionRunner', {
                             position: e.pageX
                         })
                     } else if(this.position === 'vertical') {
-                        this.$scale_value.trigger('updataPosition', {
+                        this.$scale_value.trigger('updataPositionRunner', {
                             position: e.pageY
                         })
                     }
@@ -28,11 +28,19 @@ class ScaleValue {
         return this.$scale_value
     }
 
-    public updataRenderScaleValue(size: number): void {
+    public updataRenderScaleValue(size: number, indent?: number): void {
         if(this.position === 'gorizontal') {
             this.$scale_value.css({ 'width': `${size}px`})
+
+            if(typeof(indent) === 'number') {
+                this.$scale_value.css({'transform': `translateX(${indent}px)`})                
+            }
         } else if(this.position === 'vertical') {
             this.$scale_value.css({ 'height': `${size}px`})
+            
+            if(typeof(indent) === 'number') { 
+                this.$scale_value.css({'transform': `translateY(${indent}px)`})   
+            }
         }
     }
 }

@@ -11,11 +11,11 @@ class Scale {
             on: {
                 click: (e: JQueryEventObject) => {
                     if(this.position === 'gorizontal') {
-                        this.$scale.trigger('updataPosition', {
+                        this.$scale.trigger('updataPositionRunner', {
                             position: e.pageX
                         }) 
                     } else if(this.position === 'vertical') {
-                        this.$scale.trigger('updataPosition', {
+                        this.$scale.trigger('updataPositionRunner', {
                             position: e.pageY
                         })
                     }
