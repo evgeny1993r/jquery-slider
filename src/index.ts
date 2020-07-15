@@ -1,4 +1,4 @@
-import $ from 'jquery'
+import $, { isArray } from 'jquery'
 
 import { Presenter } from './mvp/presenter'
 
@@ -13,7 +13,7 @@ declare global {
 interface Ipresenter {
     init(): JQuery
     setCurrentValue?(value: number): void
-    setCurrentValues?(value: string): void
+    setCurrentValues?(value: number[]): void
 }
 
 interface Ioptions {
@@ -52,24 +52,24 @@ interface Ioptions {
 
         setCurrentValue: (value: number) =>  presenter.setCurrentValue!(value),
 
-        setCurrentValues: (value: string) => presenter.setCurrentValues!(value)
+        setCurrentValues: (value: number[]) => presenter.setCurrentValues!(value)
     }
 
-    $.fn.slider = function(key?: Ioptions | string, value?: any) {
+    $.fn.slider = function(key?: Ioptions | string, value?: number | number[]) {
         if(!key) {
             methods.init(this)
             return this
         } else if(typeof key === 'object') {
             methods.init(this, key)
             return this
-        } else if(key === 'setCurrentValue' && value !== undefined) {
+        } else if(key === 'setCurrentValue' && typeof(value) === 'number') {
             methods.setCurrentValue(value)
             return this
-        } else if(key === 'setCurrentValues' && value !== undefined) {
+        } else if(key === 'setCurrentValues' && isArray(value)) {
             methods.setCurrentValues(value)
             return this
         } else {
-            throw Error('Error')
+            throw Error(`${key} no such method`)
         }
     }
 })($)
