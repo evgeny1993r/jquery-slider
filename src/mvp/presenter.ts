@@ -40,7 +40,7 @@ class Presenter {
     private view!: Iview
 
     public setCurrentValue?(value: number): void
-    public setCurrentValues?(value: string): void
+    public setCurrentValues?(values: number[]): void
 
     public constructor($this: JQuery, { position, interval, min_value, max_value, current_value, current_value_min, current_value_max, step, show_window_value, $input }: Ioptions) {
         this.$this = $this
@@ -72,27 +72,23 @@ class Presenter {
             }
         } else if(this.interval) {
             this.$this.on('updataCurrentValueMin', (e, data) => {
-                console.log(data)
                 this.model.setCurrentValueMin!(data.current_value_min)
                 this.view.updataCurrentValueMin!(this.model.getCurrentValueMin!())
             })
 
             this.$this.on('updataCurrentValueMax', (e, data) => {
-                console.log(data)
                 this.model.setCurrentValueMax!(data.current_value_max)
                 this.view.updataCurrentValueMax!(this.model.getCurrentValueMax!())
             })
 
-            this.setCurrentValues = function(value) {
-                if(value) {
-                    this.$this.trigger('updataCurrentValueMin', {
-                        current_value_min: Number(String(value.split('-')[0]))
-                    })
-                    
-                    this.$this.trigger('updataCurrentValueMax', {
-                        current_value_max: Number(String(value.split('-')[1]))
-                    })    
-                }
+            this.setCurrentValues = function(values) {
+                this.$this.trigger('updataCurrentValueMin', {
+                    current_value_min: values[0]
+                })
+                
+                this.$this.trigger('updataCurrentValueMax', {
+                    current_value_max: values[1]
+                })
             }
         }
         
