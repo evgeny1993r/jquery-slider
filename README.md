@@ -46,6 +46,7 @@
 ###### Примеры вызова методов:
 
 `
+
     const slider_one = $('#slider-one').slider()
     slider_one.slider('setCurrentValue', 50)
 
