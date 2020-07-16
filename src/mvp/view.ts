@@ -184,7 +184,9 @@ class View {
                 }
 
                 if(this.$input!.length) {
-                    this.$input!.val(`${this.current_value_min!} - ${this.current_value_max}`)
+                    const current_value_min = Math.sign(this.current_value_min!) === -1 ? `(${this.current_value_min})` : this.current_value_min
+                    const current_value_max = Math.sign(this.current_value_max!) === -1 ? `(${this.current_value_max})` : this.current_value_max
+                    this.$input!.val(`${current_value_min} - ${current_value_max}`)
                 }
             }
 
@@ -203,7 +205,9 @@ class View {
                 }
 
                 if(this.$input!.length) {
-                    this.$input!.val(`${this.current_value_min!} - ${this.current_value_max}`)
+                    const current_value_min = Math.sign(this.current_value_min!) === -1 ? `(${this.current_value_min})` : this.current_value_min
+                    const current_value_max = Math.sign(this.current_value_max!) === -1 ? `(${this.current_value_max})` : this.current_value_max
+                    this.$input!.val(`${current_value_min} - ${current_value_max}`)
                 }
             }
         }
@@ -270,8 +274,7 @@ class View {
             })
 
             this.$scale.on('updataPositionRunner', (e, data) => {
-                const value = (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
-                
+                const value = (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.view_min_value) / this.step)) * this.step
                 if(value > this.view_current_value_max!) {
                     this.$this.trigger('updataCurrentValueMax', {
                         current_value_max: (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
@@ -284,7 +287,7 @@ class View {
             })
 
             this.$scale_value.on('updataPositionRunner', (e, data) => {
-                const value = (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
+                const value = (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.view_min_value) / this.step)) * this.step
                 const test_value = (this.view_current_value_min! + this.view_current_value_max!) / 2
 
                 if(value > test_value) {
@@ -301,14 +304,14 @@ class View {
             if(this.$input!.length) {
                 this.$input!.on('change', () => {
                     if(this.$input!.val()) {
-                        const str = this.$input!.val()
-
+                        const val = String(this.$input!.val())
+                        
                         this.$this.trigger('updataCurrentValueMin', {
-                            current_value_min: Number(String(str).split('-')[0])
+                            current_value_min: Number(val.match(/\-?\d+/g)![0])
                         })
 
                         this.$this.trigger('updataCurrentValueMax', {
-                            current_value_max: Number(String(str).split('-')[1])
+                            current_value_max: Number(val.match(/\-?\d+/g)![1])
                         })
                     }
                 })
