@@ -11,7 +11,8 @@ interface Ioptions {
     current_value_max?: number
     step: number
     show_window_value: boolean
-    $input: JQuery
+    $input: JQuery,
+    symbol: string
 }
 
 interface Imodel {
@@ -42,17 +43,17 @@ class Presenter {
     public setCurrentValue?(value: number): void
     public setCurrentValues?(values: number[]): void
 
-    public constructor($this: JQuery, { position, interval, min_value, max_value, current_value, current_value_min, current_value_max, step, show_window_value, $input }: Ioptions) {
+    public constructor($this: JQuery, { position, interval, min_value, max_value, current_value, current_value_min, current_value_max, step, show_window_value, $input, symbol }: Ioptions) {
         this.$this = $this
 
         this.interval = interval
 
         if(!this.interval) {
             this.model = new Model({ interval, min_value,  max_value, current_value })
-            this.view = new View({ $this, position, interval, min_value, max_value, current_value, step, show_window_value, $input })
+            this.view = new View({ $this, position, interval, min_value, max_value, current_value, step, show_window_value, $input, symbol })
         } else if(this.interval) {
             this.model = new Model({ interval, min_value, max_value, current_value_min, current_value_max })
-            this.view = new View({ $this, position, interval, min_value, max_value, current_value_min, current_value_max, step, show_window_value, $input })
+            this.view = new View({ $this, position, interval, min_value, max_value, current_value_min, current_value_max, step, show_window_value, $input, symbol })
         }
     }
 

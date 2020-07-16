@@ -17,7 +17,8 @@ interface Ioptions {
     current_value_max?: number 
     step: number, 
     show_window_value: boolean, 
-    $input: JQuery
+    $input: JQuery,
+    symbol: string
 }
 
 interface Islider {
@@ -55,6 +56,7 @@ class View {
     private step: number
     private show_window_value: boolean
     private $input?: JQuery
+    private symbol: string
 
     private view_min_value: number 
     private view_max_value: number 
@@ -101,6 +103,7 @@ class View {
         this.step = options.step
         this.show_window_value = options.show_window_value
         this.$input = options.$input
+        this.symbol = options.symbol
 
         this.view_min_value = this.min_value - this.min_value
         this.view_max_value = this.max_value - this.min_value 
@@ -164,8 +167,10 @@ class View {
                     this.window_value!.updataRenderWindowValue(this.view_current_value! * this.unit_value, `${this.current_value!}`)
                 }
 
-                if(this.$input) {
-                    this.$input.val(this.current_value!)
+                if(this.$input!.length && this.symbol === '') {
+                    this.$input!.val(this.current_value!)
+                } else if(this.$input!.length && this.symbol !== '') {
+                    this.$input!.val(`${this.current_value!}${this.symbol}`)
                 }
             }
         } else if(this.interval) {
@@ -183,9 +188,13 @@ class View {
                     this.window_value_min!.updataRenderWindowValue(this.view_current_value_min! * this.unit_value, `${this.current_value_min!}`)
                 }
 
-                if(this.$input!.length) {
+                if(this.$input!.length && this.symbol === '') {
                     const current_value_min = Math.sign(this.current_value_min!) === -1 ? `(${this.current_value_min})` : this.current_value_min
                     const current_value_max = Math.sign(this.current_value_max!) === -1 ? `(${this.current_value_max})` : this.current_value_max
+                    this.$input!.val(`${current_value_min} - ${current_value_max}`)
+                } else if(this.$input!.length && this.symbol !== '') {
+                    const current_value_min = Math.sign(this.current_value_min!) === -1 ? `(${this.current_value_min}${this.symbol})` : `${this.current_value_min}${this.symbol}`
+                    const current_value_max = Math.sign(this.current_value_max!) === -1 ? `(${this.current_value_max}${this.symbol})` : `${this.current_value_max}${this.symbol}`
                     this.$input!.val(`${current_value_min} - ${current_value_max}`)
                 }
             }
@@ -204,9 +213,13 @@ class View {
                     this.window_value_max!.updataRenderWindowValue(this.view_current_value_max! * this.unit_value, `${this.current_value_max!}`)
                 }
 
-                if(this.$input!.length) {
+                if(this.$input!.length && this.symbol === '') {
                     const current_value_min = Math.sign(this.current_value_min!) === -1 ? `(${this.current_value_min})` : this.current_value_min
                     const current_value_max = Math.sign(this.current_value_max!) === -1 ? `(${this.current_value_max})` : this.current_value_max
+                    this.$input!.val(`${current_value_min} - ${current_value_max}`)
+                } else if(this.$input!.length && this.symbol !== '') {
+                    const current_value_min = Math.sign(this.current_value_min!) === -1 ? `(${this.current_value_min}${this.symbol})` : `${this.current_value_min}${this.symbol}`
+                    const current_value_max = Math.sign(this.current_value_max!) === -1 ? `(${this.current_value_max}${this.symbol})` : `${this.current_value_max}${this.symbol}`
                     this.$input!.val(`${current_value_min} - ${current_value_max}`)
                 }
             }

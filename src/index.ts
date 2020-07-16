@@ -26,7 +26,8 @@ interface Ioptions {
     current_value_max?: number 
     step?: number
     show_window_value?: boolean
-    $input?: JQuery
+    $input?: JQuery,
+    symbol?: string
 }
 
 (function($) {
@@ -44,14 +45,14 @@ interface Ioptions {
                 current_value_max: options && options.interval ? 100 : undefined,
                 step: 1,
                 show_window_value: false,
-                $input: $()
+                $input: $(),
+                symbol: ''
             }, options)
             presenter = new Presenter($this, newOptions)
             return presenter.init()   
         },
 
         setCurrentValue: (value: number) =>  presenter.setCurrentValue!(value),
-
         setCurrentValues: (value: number[]) => presenter.setCurrentValues!(value)
     }
 
