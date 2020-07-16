@@ -2,7 +2,7 @@
 
 ### Установка плагина:
 `
-    import $ from 'jquery
+    import $ from 'jquery'
 
     import './slider/slider.js'
     import './slider/slider.css'
@@ -41,6 +41,18 @@
 
 1. `setCurrentValue: number` - устанавливает текущее значение (работеат при `interval: false`),
 2. `setCurrentValues: [number, number]` - устанавливает минимальное текущее значение и максимально текущее значение (работает при `interval: true`)
+
+###### Примеры вызова методов:
+
+`
+    const slider_one = $('#slider-one').slider()
+    slider_one.slider('setCurrentValue', 50)
+
+    const slider_two = $('#slider-two').slider({
+        interval: true
+    })
+    slider_two.slider('setCurrentValues', [25, 75])
+`
 
 ### Архитиктура плагина:
 
