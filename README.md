@@ -2,6 +2,7 @@
 
 ### Установка плагина:
 `
+
     import $ from 'jquery'
 
     import './slider/slider.js'
