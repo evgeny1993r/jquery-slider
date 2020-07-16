@@ -44,7 +44,6 @@
 2. `setCurrentValues: [number, number]` - устанавливает минимальное текущее значение и максимально текущее значение (работает при `interval: true`)
 
 ###### Примеры вызова методов:
-
 `
 
     const slider_one = $('#slider-one').slider()
