@@ -1,27 +1,27 @@
 # jquery-slider - плагин для библиотеки jQuery.
 
 В качестве параметра, плагин принимает обьект, в котром могут быть указаны следующие ключи со значениями: 
-1.<position: string>
+1. <position: string>
     ><'gorizontal'> - (по умолчанию) устанавливает горизонтальное положение,
     ><'vertical'> - устанавливает вертикальное положение
-2.<interval: boolean>
+2. <interval: boolean>
     >false - (по умолчанию одиночное значение)
     >true - устанавливает интервал значения
-3.<min_value: number>
+3. <min_value: number>
     >0 - (по умолчанию) - устанавливает минимальное значение,
-4.<max_value: number>
+4. <max_value: number>
     >100 - (по умолчанию) - устанавливает максимальное значение,
-5.<current_value: number>
+5. <current_value: number>
     >0 (по умолчанию), (работает только при interval: false) - устанавливает текущее значение,
-6.<current_value_min: number>
+6. <current_value_min: number>
     >0 (по умолчанию), (работает только при interval: true) - устанавливает минимальное текущее значение,
-7.<current_value_max: number>
+7. <current_value_max: number>
     >100 (по умолчанию), (работает только при interval: true) - устанавливает максимальное текущее значение,
-8.<step: number>
+8. <step: number>
     >1 (по умолчанию) - устанавливает шаг
-9.<show_window_value: boolean>
+9. <show_window_value: boolean>
     >false (по умолчанию) - устанавливает отображение флажка над кнопками
-10.<$input: JQuery>
+10. <$input: JQuery>
     >$() - (по умолчанию пустой обьект jQuery) - устанавливает элемент типа input для синхронизации текущего значения
 
 Плагин имеет два метода:
