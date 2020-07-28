@@ -14,7 +14,8 @@ class Scale {
                         this.$scale.trigger('updataPositionRunner', {
                             position: e.pageX
                         }) 
-                    } else if(this.position === 'vertical') {
+                    }
+                    if(this.position === 'vertical') {
                         this.$scale.trigger('updataPositionRunner', {
                             position: e.pageY
                         })
