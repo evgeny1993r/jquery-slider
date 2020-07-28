@@ -111,7 +111,8 @@ class View {
         if(!this.interval) {
             this.current_value = options.current_value
             this.view_current_value = this.current_value! - this.min_value
-        } else if(this.interval) {
+        }
+        if(this.interval) {
             this.current_value_min = options.current_value_min
             this.view_current_value_min = this.current_value_min! - this.min_value
             this.current_value_max = options.current_value_max
@@ -125,7 +126,8 @@ class View {
         if(!this.interval) {
             this.runner = new Runner(this.position, 'updataPositionRunner')
             this.window_value = new WindowValue(this.position)
-        } else if(this.interval) {
+        }
+        if(this.interval) {
             this.runner_min = new Runner(this.position, 'updataPositionRunnerMin')
             this.runner_max = new Runner(this.position, 'updataPositionRunnerMax')
             this.window_value_min = new WindowValue(this.position)
@@ -139,7 +141,8 @@ class View {
         if(!this.interval) {
             this.$runner = this.runner!.getRunner()
             this.$window_value = this.window_value!.getWindowValue()
-        } else if(this.interval) {
+        }
+        if(this.interval) {
             this.$runner_min = this.runner_min!.getRunner()
             this.$runner_max = this.runner_max!.getRunner()
             this.$window_value_min = this.window_value_min!.getWindowValue()
@@ -167,13 +170,12 @@ class View {
                     this.window_value!.updataRenderWindowValue(this.view_current_value! * this.unit_value, `${this.current_value!}`)
                 }
 
-                if(this.$input!.length && this.symbol === '') {
-                    this.$input!.val(this.current_value!)
-                } else if(this.$input!.length && this.symbol !== '') {
+                if(this.$input!.length) {
                     this.$input!.val(`${this.current_value!}${this.symbol}`)
                 }
             }
-        } else if(this.interval) {
+        }
+        if(this.interval) {
             this.updataCurrentValueMin = function(value) {
                 this.current_value_min = value
                 this.view_current_value_min = value - this.min_value
@@ -188,11 +190,7 @@ class View {
                     this.window_value_min!.updataRenderWindowValue(this.view_current_value_min! * this.unit_value, `${this.current_value_min!}`)
                 }
 
-                if(this.$input!.length && this.symbol === '') {
-                    const current_value_min = Math.sign(this.current_value_min!) === -1 ? `(${this.current_value_min})` : this.current_value_min
-                    const current_value_max = Math.sign(this.current_value_max!) === -1 ? `(${this.current_value_max})` : this.current_value_max
-                    this.$input!.val(`${current_value_min} - ${current_value_max}`)
-                } else if(this.$input!.length && this.symbol !== '') {
+                if(this.$input!.length) {
                     const current_value_min = Math.sign(this.current_value_min!) === -1 ? `(${this.current_value_min}${this.symbol})` : `${this.current_value_min}${this.symbol}`
                     const current_value_max = Math.sign(this.current_value_max!) === -1 ? `(${this.current_value_max}${this.symbol})` : `${this.current_value_max}${this.symbol}`
                     this.$input!.val(`${current_value_min} - ${current_value_max}`)
@@ -212,12 +210,8 @@ class View {
                 if(this.show_window_value) {
                     this.window_value_max!.updataRenderWindowValue(this.view_current_value_max! * this.unit_value, `${this.current_value_max!}`)
                 }
-
-                if(this.$input!.length && this.symbol === '') {
-                    const current_value_min = Math.sign(this.current_value_min!) === -1 ? `(${this.current_value_min})` : this.current_value_min
-                    const current_value_max = Math.sign(this.current_value_max!) === -1 ? `(${this.current_value_max})` : this.current_value_max
-                    this.$input!.val(`${current_value_min} - ${current_value_max}`)
-                } else if(this.$input!.length && this.symbol !== '') {
+                
+                if(this.$input!.length) {
                     const current_value_min = Math.sign(this.current_value_min!) === -1 ? `(${this.current_value_min}${this.symbol})` : `${this.current_value_min}${this.symbol}`
                     const current_value_max = Math.sign(this.current_value_max!) === -1 ? `(${this.current_value_max}${this.symbol})` : `${this.current_value_max}${this.symbol}`
                     this.$input!.val(`${current_value_min} - ${current_value_max}`)
@@ -235,7 +229,8 @@ class View {
                         if(this.show_window_value) {
                             this.$slider.append(this.$window_value!)
                         }   
-                } else if(this.interval) {
+                }
+                if(this.interval) {
                     this.$slider
                         .append(this.$runner_min!)
                         .append(this.$runner_max!)
@@ -245,12 +240,19 @@ class View {
                         }
                 }
         
-        this.position_$scale = this.position === 'gorizontal' ? this.$scale.position().left : this.$scale.position().top
-        this.unit_value = this.position === 'gorizontal' ? this.$scale.outerWidth()! / this.view_max_value : this.$scale.outerHeight()! / this.view_max_value
+        if(this.position === 'gorizontal') {
+            this.position_$scale = this.$scale.position().left
+            this.unit_value = this.$scale.outerWidth()! / this.view_max_value
+        }
+        if(this.position === 'vertical') {
+            this.position_$scale = this.$scale.position().top
+            this.unit_value = this.$scale.outerHeight()! / this.view_max_value    
+        }
 
         if(!this.interval) {
             this.updataRenderCurrentValue!()
-        } else if(this.interval) {
+        }
+        if(this.interval) {
             this.updataRenderCurrentValueMin!()
             this.updataRenderCurrentValueMax!()
         }
@@ -263,7 +265,7 @@ class View {
                         current_value: (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
                     })
                 })
-            })        
+            })
             
             if(this.$input!.length) {
                 this.$input!.on('change', () => {
@@ -273,7 +275,8 @@ class View {
                     })
                 })
             }
-        } else if(this.interval) {
+        }
+        if(this.interval) {
             this.$runner_min!.on('updataPositionRunnerMin', (e, data) => {
                 this.$this.trigger('updataCurrentValueMin', {
                     current_value_min: (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
@@ -288,13 +291,16 @@ class View {
 
             this.$scale.on('updataPositionRunner', (e, data) => {
                 const value = (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.view_min_value) / this.step)) * this.step
-                if(value > this.view_current_value_max!) {
-                    this.$this.trigger('updataCurrentValueMax', {
-                        current_value_max: (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
-                    })
-                } else if(value < this.view_current_value_min!) {
+
+                if(value <= this.view_current_value_min!) {
                     this.$this.trigger('updataCurrentValueMin', {
                         current_value_min: (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
+                    })
+                }
+
+                if(value >= this.view_current_value_max!) {
+                    this.$this.trigger('updataCurrentValueMax', {
+                        current_value_max: (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
                     })
                 }
             })
@@ -303,14 +309,15 @@ class View {
                 const value = (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.view_min_value) / this.step)) * this.step
                 const test_value = (this.view_current_value_min! + this.view_current_value_max!) / 2
 
-                if(value > test_value) {
-                    this.$this.trigger('updataCurrentValueMax', {
-                        current_value_max: (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
-                    })
-                } else if(value < test_value) {
+                if(value <= test_value) {
                     this.$this.trigger('updataCurrentValueMin', {
                         current_value_min: (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
                     })  
+                }
+                if(value >= test_value) {
+                    this.$this.trigger('updataCurrentValueMax', {
+                        current_value_max: (Math.round((((data.position - this.position_$scale) / this.unit_value) + this.min_value) / this.step)) * this.step
+                    })
                 }
             })
 
