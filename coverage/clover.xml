@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1595939111796" clover="3.2.0">
+  <project timestamp="1595939111796" name="All files">
+    <metrics statements="256" coveredstatements="254" conditionals="126" coveredconditionals="115" methods="49" coveredmethods="49" elements="431" coveredelements="418" complexity="0" loc="256" ncloc="256" packages="2" files="8" classes="8"/>
+    <package name="components">
+      <metrics statements="56" coveredstatements="56" conditionals="28" coveredconditionals="28" methods="18" coveredmethods="18"/>
+      <file name="runner.ts" path="C:\Users\Евгений\Desktop\jquery-slider — копия (2)\src\components\runner.ts">
+        <metrics statements="16" coveredstatements="16" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="9" count="8" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="34" count="12" type="stmt"/>
+        <line num="38" count="38" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="13" type="stmt"/>
+        <line num="41" count="38" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="25" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
+      </file>
+      <file name="scale-value.ts" path="C:\Users\Евгений\Desktop\jquery-slider — копия (2)\src\components\scale-value.ts">
+        <metrics statements="17" coveredstatements="17" conditionals="12" coveredconditionals="12" methods="4" coveredmethods="4"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="13" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="29" count="12" type="stmt"/>
+        <line num="33" count="40" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="14" type="stmt"/>
+        <line num="36" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="40" count="40" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="26" type="stmt"/>
+        <line num="43" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="13" type="stmt"/>
+        <line num="51" count="3" type="stmt"/>
+      </file>
+      <file name="scale.ts" path="C:\Users\Евгений\Desktop\jquery-slider — копия (2)\src\components\scale.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="13" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="29" count="8" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+      </file>
+      <file name="slider.ts" path="C:\Users\Евгений\Desktop\jquery-slider — копия (2)\src\components\slider.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+      </file>
+      <file name="window-value.ts" path="C:\Users\Евгений\Desktop\jquery-slider — копия (2)\src\components\window-value.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="9" count="8" type="stmt"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="19" count="31" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="22" count="31" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="25" type="stmt"/>
+        <line num="25" count="31" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="mvp">
+      <metrics statements="200" coveredstatements="198" conditionals="98" coveredconditionals="87" methods="31" coveredmethods="31"/>
+      <file name="model.ts" path="C:\Users\Евгений\Desktop\jquery-slider — копия (2)\src\mvp\model.ts">
+        <metrics statements="26" coveredstatements="26" conditionals="20" coveredconditionals="18" methods="8" coveredmethods="8"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="29" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="38" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="6" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="12" type="cond" truecount="4" falsecount="0"/>
+        <line num="44" count="10" type="stmt"/>
+        <line num="46" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="5" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="17" type="cond" truecount="4" falsecount="0"/>
+        <line num="52" count="15" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="5" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="58" count="17" type="cond" truecount="4" falsecount="0"/>
+        <line num="59" count="15" type="stmt"/>
+        <line num="66" count="2" type="stmt"/>
+      </file>
+      <file name="presenter.ts" path="C:\Users\Евгений\Desktop\jquery-slider — копия (2)\src\mvp\presenter.ts">
+        <metrics statements="31" coveredstatements="31" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="51" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="55" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
+        <line num="65" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="76" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+      </file>
+      <file name="view.ts" path="C:\Users\Евгений\Desktop\jquery-slider — копия (2)\src\mvp\view.ts">
+        <metrics statements="143" coveredstatements="141" conditionals="70" coveredconditionals="61" methods="16" coveredmethods="16"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="98" count="4" type="stmt"/>
+        <line num="99" count="4" type="stmt"/>
+        <line num="100" count="4" type="stmt"/>
+        <line num="101" count="4" type="stmt"/>
+        <line num="102" count="4" type="stmt"/>
+        <line num="103" count="4" type="stmt"/>
+        <line num="104" count="4" type="stmt"/>
+        <line num="105" count="4" type="stmt"/>
+        <line num="106" count="4" type="stmt"/>
+        <line num="108" count="4" type="stmt"/>
+        <line num="109" count="4" type="stmt"/>
+        <line num="111" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="112" count="2" type="stmt"/>
+        <line num="113" count="2" type="stmt"/>
+        <line num="115" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="116" count="2" type="stmt"/>
+        <line num="117" count="2" type="stmt"/>
+        <line num="118" count="2" type="stmt"/>
+        <line num="119" count="2" type="stmt"/>
+        <line num="122" count="4" type="stmt"/>
+        <line num="123" count="4" type="stmt"/>
+        <line num="124" count="4" type="stmt"/>
+        <line num="126" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="127" count="2" type="stmt"/>
+        <line num="128" count="2" type="stmt"/>
+        <line num="130" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="131" count="2" type="stmt"/>
+        <line num="132" count="2" type="stmt"/>
+        <line num="133" count="2" type="stmt"/>
+        <line num="134" count="2" type="stmt"/>
+        <line num="137" count="4" type="stmt"/>
+        <line num="138" count="4" type="stmt"/>
+        <line num="139" count="4" type="stmt"/>
+        <line num="141" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="142" count="2" type="stmt"/>
+        <line num="143" count="2" type="stmt"/>
+        <line num="145" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="146" count="2" type="stmt"/>
+        <line num="147" count="2" type="stmt"/>
+        <line num="148" count="2" type="stmt"/>
+        <line num="149" count="2" type="stmt"/>
+        <line num="152" count="4" type="stmt"/>
+        <line num="153" count="4" type="stmt"/>
+        <line num="158" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="159" count="5" type="stmt"/>
+        <line num="160" count="3" type="stmt"/>
+        <line num="161" count="3" type="stmt"/>
+        <line num="162" count="3" type="stmt"/>
+        <line num="165" count="5" type="stmt"/>
+        <line num="166" count="8" type="stmt"/>
+        <line num="167" count="8" type="stmt"/>
+        <line num="169" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="170" count="5" type="stmt"/>
+        <line num="173" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="174" count="5" type="stmt"/>
+        <line num="178" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="179" count="12" type="stmt"/>
+        <line num="180" count="2" type="stmt"/>
+        <line num="181" count="2" type="stmt"/>
+        <line num="182" count="2" type="stmt"/>
+        <line num="185" count="12" type="stmt"/>
+        <line num="186" count="14" type="stmt"/>
+        <line num="187" count="14" type="stmt"/>
+        <line num="189" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="190" count="12" type="stmt"/>
+        <line num="193" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="194" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="195" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="196" count="12" type="stmt"/>
+        <line num="200" count="12" type="stmt"/>
+        <line num="201" count="2" type="stmt"/>
+        <line num="202" count="2" type="stmt"/>
+        <line num="203" count="2" type="stmt"/>
+        <line num="206" count="12" type="stmt"/>
+        <line num="207" count="14" type="stmt"/>
+        <line num="208" count="14" type="stmt"/>
+        <line num="210" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="211" count="12" type="stmt"/>
+        <line num="214" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="215" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="216" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="217" count="12" type="stmt"/>
+        <line num="222" count="17" type="stmt"/>
+        <line num="226" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="227" count="5" type="stmt"/>
+        <line num="229" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="230" count="4" type="stmt"/>
+        <line num="233" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="234" count="12" type="stmt"/>
+        <line num="237" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="238" count="11" type="stmt"/>
+        <line num="239" count="11" type="stmt"/>
+        <line num="243" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="244" count="6" type="stmt"/>
+        <line num="245" count="6" type="stmt"/>
+        <line num="247" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="248" count="11" type="stmt"/>
+        <line num="249" count="11" type="stmt"/>
+        <line num="252" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="253" count="5" type="stmt"/>
+        <line num="255" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="256" count="12" type="stmt"/>
+        <line num="257" count="12" type="stmt"/>
+        <line num="260" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="261" count="5" type="stmt"/>
+        <line num="262" count="5" type="stmt"/>
+        <line num="263" count="15" type="stmt"/>
+        <line num="264" count="12" type="stmt"/>
+        <line num="270" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="271" count="4" type="stmt"/>
+        <line num="272" count="4" type="stmt"/>
+        <line num="273" count="4" type="stmt"/>
+        <line num="279" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="280" count="12" type="stmt"/>
+        <line num="281" count="5" type="stmt"/>
+        <line num="286" count="12" type="stmt"/>
+        <line num="287" count="6" type="stmt"/>
+        <line num="292" count="12" type="stmt"/>
+        <line num="293" count="15" type="stmt"/>
+        <line num="295" count="15" type="cond" truecount="1" falsecount="1"/>
+        <line num="296" count="0" type="stmt"/>
+        <line num="301" count="15" type="cond" truecount="1" falsecount="1"/>
+        <line num="302" count="15" type="stmt"/>
+        <line num="308" count="12" type="stmt"/>
+        <line num="309" count="19" type="stmt"/>
+        <line num="310" count="19" type="stmt"/>
+        <line num="312" count="19" type="cond" truecount="1" falsecount="1"/>
+        <line num="313" count="0" type="stmt"/>
+        <line num="317" count="19" type="cond" truecount="1" falsecount="1"/>
+        <line num="318" count="19" type="stmt"/>
+        <line num="324" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="325" count="11" type="stmt"/>
+        <line num="326" count="11" type="cond" truecount="1" falsecount="1"/>
+        <line num="327" count="11" type="stmt"/>
+        <line num="329" count="11" type="stmt"/>
+        <line num="333" count="11" type="stmt"/>
+        <line num="344" count="2" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
