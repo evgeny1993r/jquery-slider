@@ -51,7 +51,8 @@ class Presenter {
         if(!this.interval) {
             this.model = new Model({ interval, min_value,  max_value, current_value })
             this.view = new View({ $this, position, interval, min_value, max_value, current_value, step, show_window_value, $input, symbol })
-        } else if(this.interval) {
+        }
+        if(this.interval) {
             this.model = new Model({ interval, min_value, max_value, current_value_min, current_value_max })
             this.view = new View({ $this, position, interval, min_value, max_value, current_value_min, current_value_max, step, show_window_value, $input, symbol })
         }
@@ -71,7 +72,8 @@ class Presenter {
                 this.model.setCurrentValue!(value)
                 this.view.updataCurrentValue!(this.model.getCurrentValue!())
             }
-        } else if(this.interval) {
+        }
+        if(this.interval) {
             this.$this.on('updataCurrentValueMin', (e, data) => {
                 this.model.setCurrentValueMin!(data.current_value_min)
                 this.view.updataCurrentValueMin!(this.model.getCurrentValueMin!())
