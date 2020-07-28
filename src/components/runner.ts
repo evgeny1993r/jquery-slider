@@ -15,7 +15,8 @@ class Runner {
                             this.$runner.trigger(event_name, {
                                 position: e.pageX
                             })    
-                        } else if(this.position === 'vertical') {
+                        }
+                        if(this.position === 'vertical') {
                             this.$runner.trigger(event_name, {
                                 position: e.pageY
                             }) 
@@ -36,7 +37,8 @@ class Runner {
     public updataRenderRunner(position: number): void {
         if(this.position === 'gorizontal') {
             this.$runner.css({'transform': `translateX(${position}px)`})
-        } else if(this.position === 'vertical') {
+        }
+        if(this.position === 'vertical') {
             this.$runner.css({'transform': `translateY(${position}px)`})
         }
     }
